@@ -1,0 +1,231 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Proxima';
+  src: url('/assets/Proxima_Nova_Font.otf');
+}
+
+body, .wrapper {
+  font-family: 'Proxima', Arial, sans-serif;
+  margin: 0;
+}
+app-dashboard,
+app-catalog,
+app-catalog-item,
+app-catalog-container ,
+app-cabinet,
+app-create-element, app-my-classes,
+app-add-trainer-hours, app-trainers-hours,
+app-settings {
+  width: 100%;
+}
+app-auth, app-login-page, app-register-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  background-image: url("/assets/DSC04717.jpeg");
+  background-size: cover;
+  background-position-y: center;
+  position: relative;
+  font-family: 'Proxima', Arial, sans-serif;
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    //position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  background-color: #D9DEFE;
+  border-top-left-radius: 40px;
+  z-index: 10;
+}
+header {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  .langs {
+    align-self: flex-end;
+    margin: 30px 40px;
+  }
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30%;
+  .form-text {
+    color: black;
+    margin-top: 30px;
+    font-size: 13px;
+    span {
+      text-decoration: underline;
+      color: #23468C;
+      cursor: pointer;
+    }
+  }
+  &.register-form {
+    margin-top: 15%;
+  }
+  h2 {
+    font-weight: normal;
+    color: #23468C;
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+}
+.form-field {
+  margin-bottom: 20px;
+  input {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 22px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    min-width: 240px;
+  }
+}
+.primary-btn {
+  background-color: #54C2E3;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  padding: 10px 35px;
+  cursor: pointer;
+  margin-top: 10px;
+  outline: none;
+}
+.secondary-btn {
+  background-color: white;
+  color: #23468C;
+  border-radius: 20px;
+  border: none;
+  padding: 10px 35px;
+  cursor: pointer;
+  outline: none;
+}
+
+h3 {
+  font-weight: normal;
+  color: #23468C;
+  //font-size: 24px;
+  margin-bottom: 20px;
+}
+
+
+.lang-icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  background-size: cover;
+  display: inline-block;
+  cursor: pointer;
+  &.en {
+    background-image: url("/assets/united-kingdom.png");
+  }
+  &.pl {
+    background-image: url("/assets/poland.png");
+  }
+}
+
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.left-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  //background-image: url("/assets/DSC04717.jpeg");
+  //background-size: cover;
+  width: 50%;
+  position: relative;
+  h1 {
+    color: white;
+    z-index: 3;
+    margin: 0 40px;
+    line-height: 1.6;
+    font-size: 39px;
+    max-width: 70%;
+  }
+  //&::after {
+  //  position: absolute;
+  //  content: "";
+  //  width: 100%;
+  //  height: 100%;
+  //  //position: absolute;
+  //  background-color: rgba(0, 0, 0, 0.7);
+  //}
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+app-sidebar {
+  width: 23%;
+  background-color: #D9DEFE;
+}
+.right-container {
+  width: 77%;
+  box-shadow: 0 0 4px 1px #d8d8d8;
+  padding: 40px 60px 20px;
+  h3 {
+    font-weight: normal;
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+}
+.head-with-line {
+  color: #23468C;
+  position: relative;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  &:after {
+    content: "";
+    width: 83%;
+    margin-left: 10px;
+    height: 1px;
+    margin-top: 9px;
+    position: absolute;
+    background-color: #b1b7c7;
+  }
+}
+
+.filtersRow {
+  display: inline-flex;
+  margin-left: 30px;
+  &__item {
+    display: flex;
+    margin-right: 15px;
+    align-items: center;
+    p {
+      margin: 0 10px 0 0;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+
+
+
+<div class="left-part">
+    <h1>
+      Check your progress with Malanka App!
+    </h1>
+</div>
+<div class="auth-container">
+<app-header></app-header>
+  <div class="form-container">
+    <form class="login-form auth-form" [formGroup]="loginForm">
+      <h2>{{ 'login' | translate }}</h2>
+      <div  class="form-field">
+        <input name="login" formControlName="username" placeholder="Your Username"/>
+      </div>
+      <div  class="form-field">
+        <input name="password" formControlName="password" type="password" placeholder="Your Password"/>
+      </div>
+      <button  class="primary-btn" (click)="login()">Login</button>
+      <p class="form-text">Don't have account? <span routerLink="/register">Sign Up</span></p>
+    </form>
+  </div>
+
+</div>

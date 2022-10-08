@@ -1,0 +1,62 @@
+.sidebar {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 50px;
+  flex-direction: column;
+  border-right: 1px solid #bfc8e4;
+  &__logo {
+    background-image: url("/assets/logo_blue.png");
+    width: 115px;
+    height: 25px;
+    background-size: cover;
+  }
+  &__title {
+    color: #23468C;
+    font-weight: bold;
+    font-size: 17px;
+  }
+  &__img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #9fa19f;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  &__top {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__button {
+    margin-top: 15px;
+    font-size: 12px;
+    padding: 5px 20px;
+  }
+  &__footerItem {
+    text-transform: uppercase;
+    color: #9da4b9;
+    font-weight: 100;
+    cursor: pointer;
+    &:first-child {
+      margin-bottom: 15px;
+    }
+
+  }
+}
+.menu {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: 40%;
+  &__item {
+    margin-bottom: 30px;
+    color: #858EAB;
+    cursor: pointer;
+    &.active {
+      color: #23468C;
+      font-weight: bold;
+    }
+  }
+}

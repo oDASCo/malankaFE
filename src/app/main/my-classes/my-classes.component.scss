@@ -1,0 +1,41 @@
+.createCombo {
+  display: flex;
+  &__left {
+    width: 60%;
+  }
+  &__right {
+    width: 38%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.classesRow {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+  &__item {
+    display: flex;
+
+    background-color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 15px 15px 15px 45px;
+    box-shadow: 0 0 5px 1px #c1c1c1;
+    margin-bottom: 15px;
+    width: 100%;
+    align-items: center;
+  }
+  &__name {
+    color: #23468C;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 40px;
+  }
+  &__list {
+    color: #9da4b9;
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+}

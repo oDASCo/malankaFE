@@ -1,0 +1,31 @@
+
+
+
+<div class="left-part">
+  <h1>
+    Check your progress with Malanka App!
+  </h1>
+</div>
+<div class="auth-container">
+  <app-header></app-header>
+  <div class="form-container">
+    <form class="register-form auth-form" [formGroup]="registerForm">
+      <h3>Sign Up</h3>
+      <div  class="form-field">
+        <input name="login" formControlName="username" placeholder="Create Your Username"/>
+      </div>
+      <div  class="form-field">
+        <input name="email" formControlName="email" placeholder="Enter Your Email"/>
+      </div>
+      <div  class="form-field">
+        <input name="password" formControlName="password" type="password" placeholder="Create Your Password"/>
+      </div>
+      <div  class="form-field">
+        <input name="passwordRepeat" formControlName="repeatedPassword" type="password" placeholder="Repeat Your Password"/>
+      </div>
+      <button  class="primary-btn" (click)="signUp()">Create Account</button>
+      <p class="form-text">Already have account? <span routerLink="/login">Sign In</span></p>
+    </form>
+  </div>
+
+</div>

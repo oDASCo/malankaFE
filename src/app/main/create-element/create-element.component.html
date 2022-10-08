@@ -1,0 +1,35 @@
+
+<div class="container">
+  <app-sidebar></app-sidebar>
+  <div class="right-container">
+    <h3>Create Element</h3>
+    <form class="createElement__form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Element Category</mat-label>
+        <mat-select>
+          <mat-option>Pole Dance</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Element Name</mat-label>
+        <input matInput placeholder="Enter Combo Name">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Element Level</mat-label>
+        <mat-select>
+          <mat-option>Level Intro</mat-option>
+          <mat-option>Level 0</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="example-full-width">
+        <mat-label>Media</mat-label>
+        <input type="file"/>
+      </div>
+      <div class="createElement__mediaRow">
+        <div class="createElement__media"></div>
+        <div class="createElement__media"></div>
+      </div>
+      <button class="primary-btn">Create Element</button>
+    </form>
+  </div>
+</div>

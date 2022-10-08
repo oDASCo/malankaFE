@@ -1,0 +1,116 @@
+.createCombo {
+  display: flex;
+  &__left {
+    width: 60%;
+  }
+  &__right {
+    width: 38%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  input.mat-input-element {
+    font-size: 22px;
+  }
+  .mat-form-field-appearance-legacy .mat-form-field-label {
+    font-size: 20px;
+  }
+  &__text {
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    color: #23468C;
+    text-transform: uppercase;
+  }
+}
+
+
+
+
+.myPage {
+  display: flex;
+  &__myListRowYWrap {
+    width: 100%;
+    height: 30%;
+    overflow-y: scroll;
+  }
+  &__myListRowY {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+  }
+  &__btn {
+    align-self: flex-end;
+    margin-top: 30px;
+  }
+}
+
+.wishlist {
+  &__item {
+    background-color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 15px 15px 15px 15px;
+    box-shadow: 0 0 5px 1px #c1c1c1;
+    margin-bottom: 10px;
+    position: relative;
+    display: flex;
+    width: 100%;
+    .element-number {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: mediumpurple;
+      border-radius: 20px;
+      height: 100%;
+      width: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .number {
+        font-size: 26px;
+        color: white;
+        font-weight: bold;
+      }
+    }
+  }
+  &__photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: darkcyan;
+    margin-right: 20px;
+  }
+  &__info {
+    width: 55%;
+  }
+
+  &__title {
+    color: #23468C;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  &__text {
+    color: #9da4b9;
+    font-size: 13px;
+    margin-bottom: 0;
+  }
+  &__link {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    a {
+      color: #23468C;
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    div {
+      color: rgba(35, 70, 140, 0.5);
+    }
+  }
+}
