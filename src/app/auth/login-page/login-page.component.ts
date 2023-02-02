@@ -31,7 +31,9 @@ export class LoginPageComponent implements OnInit {
   }
 
   login() {
+    this.router.navigate([], {queryParams: {login: 'newlogin'}});
     if (!this.loginForm.invalid) {
+
       this.authService.login(this.loginForm.value).subscribe(data => {
         window.localStorage.setItem('userInfo', JSON.stringify(data));
         this.authService.userInfo$.next(data);
@@ -43,5 +45,4 @@ export class LoginPageComponent implements OnInit {
       this.showError('Заполните все обязательные поля');
     }
   }
-
 }

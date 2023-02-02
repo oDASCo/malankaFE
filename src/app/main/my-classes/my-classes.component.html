@@ -1,15 +1,15 @@
 <div class="container">
-  <app-sidebar></app-sidebar>
+  <app-sidebar [ngClass]="{'opened': isMenuOpened}"></app-sidebar>
   <div class="right-container">
+    <div (click)="openMenu()" class="menuIcon"><mat-icon>menu</mat-icon></div>
     <h3>My Classes</h3>
-    <button class="primary-btn">Create Class</button>
+    <button role="button" class="primary-btn" routerLink="/create-class">Create Class</button>
     <div class="classesRow">
-      <div class="classesRow__item">
-        <div class="classesRow__name">Class #1</div>
+      <div class="classesRow__item" *ngFor="let classItem of items;" >
+        <div class="classesRow__name">{{classItem?.name}}</div>
         <div class="classesRow__list">
           <ul>
-            <li>Jade</li>
-            <li>Inverted V</li>
+            <li *ngFor="let element of classItem?.elements;">{{element?.name}}</li>
           </ul>
         </div>
       </div>

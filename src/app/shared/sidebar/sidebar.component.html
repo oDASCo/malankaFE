@@ -1,17 +1,21 @@
 <div class="sidebar">
+  <div (click)="closeMenu()" class="closeBtn"><mat-icon>close</mat-icon></div>
   <div>
     <div class="sidebar__top">
       <div class="sidebar__logo"></div>
-      <div class="sidebar__img"></div>
+<!--      <div class="sidebar__img" [style]="{'background-image': 'url(' + user.photo + ')'}"></div>-->
+      <div class="sidebar__img" [style]="{'background-image': 'url(' + user.photo + ')'}"></div>
+<!--      <img class="sidebar__img" src="http://localhost:3002/uploads/users/3-e29c.jpeg"/>-->
+<!--      <img class="sidebar__img" src="https://picsum.photos/200/300"/>-->
       <div class="sidebar__title">Darya Lazouskaya</div>
       <div class="sidebar__button secondary-btn" routerLink="/cabinet">My page</div>
     </div>
     <div class="menu">
       <div class="menu__item" routerLink="/dashboard" routerLinkActive="active">Dashboard</div>
       <div class="menu__item" routerLink="/catalog" routerLinkActive="active">Catalog</div>
-      <div class="menu__item" routerLink="/create-combo">Create Combo</div>
-      <div class="menu__item" routerLink="/create-element">Add element</div>
-      <div class="menu__item" routerLink="/create-class">Create Class ()</div>
+      <div class="menu__item" routerLink="/create-combo" routerLinkActive="active">Create Combo</div>
+      <div class="menu__item" routerLink="/create-element" routerLinkActive="active">Add element</div>
+      <div class="menu__item" routerLink="/my-classes" routerLinkActive="active">My Classes</div>
 
     </div>
 

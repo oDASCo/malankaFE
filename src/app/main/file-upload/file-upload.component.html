@@ -1,0 +1,17 @@
+<div>
+
+  <label class="file-upload">
+    <input class="file-input" type="file" multiple name="{{inpName}}" (change)="readURL($event);" >
+    <span>Select {{inpName}}</span>
+    <span class="file-input-icon" *ngIf="inpName === 'video'"><mat-icon>videocam</mat-icon></span>
+    <span class="file-input-icon" *ngIf="inpName === 'image'"><mat-icon>photo_camera</mat-icon></span>
+  </label>
+  <p>{{file ? file.name : ''}}</p>
+<!--  <input class="file-input" type="file" multiple name="{{inpName}}" (change)="readURL($event);" >-->
+  <div *ngIf="inpName === 'image' && imageSrc" class="imageItem">
+    <img  id="blah" [src]="imageSrc" alt="your image" />
+  </div>
+
+</div>
+
+<!--<app-progress [progress]="progress"></app-progress>-->

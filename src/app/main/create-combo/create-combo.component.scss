@@ -1,10 +1,11 @@
 .createCombo {
   display: flex;
+  height: 100%;
   &__left {
-    width: 71%;
+    width: 60%;
   }
   &__right {
-    width: 27%;
+    width: 38%;
     display: flex;
     flex-direction: column;
   }
@@ -64,6 +65,8 @@
     border-radius: 5px;
     background-color: darkcyan;
     margin-right: 20px;
+    background-size: cover;
+    background-position: center;
   }
   &__info {
     width: 55%;
@@ -95,4 +98,27 @@
       color: rgba(35, 70, 140, 0.5);
     }
   }
+}
+@media only screen and (max-width: 767px) {
+  .myPage__myListRowYWrap {
+    max-height: 200px;
+    height: unset;
+  }
+  .createCombo {
+    display: flex;
+    flex-direction: column-reverse;
+
+    &__left {
+      width: 100%;
+    }
+
+    &__right {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+.createCombo .myPage__myListRowYWrap {
+  height: 62%;
 }

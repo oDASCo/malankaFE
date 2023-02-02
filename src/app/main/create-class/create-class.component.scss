@@ -23,7 +23,11 @@
     text-transform: uppercase;
   }
 }
-
+@media only screen and (max-width: 767px) {
+  .myPage__myListRowYWrap {
+    height: 200px;
+  }
+}
 
 
 
@@ -111,6 +115,26 @@
     }
     div {
       color: rgba(35, 70, 140, 0.5);
+    }
+  }
+}
+@media only screen and (max-width: 767px) {
+  .myPage__myListRowYWrap {
+    max-height: 200px;
+    height: unset;
+  }
+  .createCombo {
+    display: flex;
+    flex-direction: column-reverse;
+
+    &__left {
+      width: 100%;
+    }
+
+    &__right {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
     }
   }
 }

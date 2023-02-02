@@ -25,6 +25,7 @@ export class RegisterPageComponent implements OnInit {
   }
 
   signUp() {
+    console.log(this.registerForm.invalid);
     if (!this.registerForm.invalid) {
       const userData = {
         ...this.registerForm.value,

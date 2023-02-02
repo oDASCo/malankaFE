@@ -9,11 +9,27 @@
   width: 53%;
   background-color: #D9DEFE;
   padding: 40px 60px 20px;
+  position: relative;
 
   h3 {
     font-weight: normal;
     font-size: 22px;
+    text-align: right;
   }
+  .menuIcon {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    display: none;
+    cursor: pointer;
+    mat-icon {
+      font-size: 34px;
+      width: 34px;
+      height: 34px;
+      color: #24468c;
+    }
+  }
+
 }
 .left-inner {
   height: 100%;
@@ -22,297 +38,36 @@
   justify-content: space-between;
 }
 
-app-sidebar {
-  width: 23%;
-  background-color: #D9DEFE;
-}
+
 .right-cont {
   width: 24%;
   box-shadow: 0 0 4px 1px #d8d8d8;
+  z-index: 60;
 }
-.progressBlock {
-  //margin: 30px 0 0 0;
-  border:   1px solid #bfc8e4;
-  padding: 15px 30px 15px 30px;
-  border-radius: 15px;
-  &__title {
-    text-transform: uppercase;
-    color: #9da4b9;
-    font-weight: 100;
-    margin-bottom: 15px;
-    font-size: 15px;
-  }
-  &__items {
-    margin-bottom: -70px;
-    display: flex;
-    justify-content: space-around;
-  }
-  &__item {
-    background-color: white;
-    border-radius: 15px;
-    padding: 15px;
-    width: 19%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  &__head {
-    color: rgb(86,120,184);
-    font-weight: bold;
-    font-size: 17px;
-    margin-bottom: 8px;
-  }
-  &__text {
-    color: #9da4b9;
-    font-size: 12px;
-    margin-bottom: 0;
-  }
-  &__textSmall {
-    font-size: 11px;
-  }
-}
-.infoBlock {
-  &__head {
-    color: #23468C;
-    font-size: 28px;
-    margin-bottom: 30px;
-    font-weight: bold;
-    margin-top: 10%;
-  }
-  &__text {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #9da4b9;
-    max-width: 50%;
-    line-height: 1.3;
-  }
-  &__btn {
 
-  }
-}
-.lastBlock {
-  margin-top: 20px;
-  &__head {
-    color: #23468C;
-    position: relative;
-    font-size: 18px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    &:after {
-      content: "";
-      width: 83%;
-      margin-left: 10px;
-      height: 1px;
-      margin-top: 9px;
-      position: absolute;
-      background-color: #b1b7c7;
-    }
-  }
-  &__itemsWrap {
-    max-height: 58%;
-    overflow-y: scroll;
-  }
-  &__item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 15px;
-    align-items: center;
-  }
-  &__itemPhotoInfo {
-    display: flex;
-    align-items: center;
-  }
-  &__itemPhoto {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-color: #9fa19f;
-  }
-  &__itemInfo {
-    margin-left: 20px;
-    display: flex;
+
+@media only screen and (max-width: 767px) {
+
+  .container {
     flex-direction: column;
+    height: unset;
+    width: 100vw;
+    overflow-x: hidden;
   }
-  &__itemTitle {
-    margin-top: 0;
-    color: rgb(86,120,184);
-    font-weight: bold;
-  }
-  &__itemText {
-    color: #9da4b9;
-  }
-  &__itemName {
-    color: #B942DE;
-    font-weight: bold;
-    padding: 3px 8px;
-    border: 1px solid #B942DE;
-    border-radius: 5px;
-    font-size: 12px;
-  }
-}
-.elementsBlock {
-  display: flex;
-  justify-content: space-between;
-  width: 220%;
-  margin-left: -322px;
-}
-.lorem {
-  min-height: 38%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.elementCard {
-  background-color: white;
-  border-radius: 20px;
-  padding: 10px 10px 15px 10px;
-  min-width: 150px;
-  box-shadow: 0 0 5px 1px #eaeaea;
-  &.blue {
-    background-color: #54C2E3;
-    .elementCard__title {
-      color: white;
-    }
-    .elementCard__text {
-      color: white;
-    }
-    .elementCard__link {
-      a {
-        color: white;
-      }
-      div {
-        color: white;
-      }
-    }
-  }
-  &__video {
+  .left-container {
     width: 100%;
-    height: 80px;
-    border-radius: 20px;
-    background-image: url(/assets/photo1.jpeg);
-    background-position: center;
-    background-size: cover;
-  }
-  &__title {
-    color: #23468C;
-    font-weight: bold;
-    margin-bottom: 10px;
-    font-size: 17px;
-    margin-top: 15px;
-  }
-  &__text {
-    color: #9da4b9;
-    margin-bottom: 15px;
-  }
-  &__link {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    a {
-      color: #23468C;
-      font-weight: bold;
-      font-size: 12px;
-      cursor: pointer;
-    }
-    div {
-      color: rgba(35, 70, 140, 0.5);
-    }
-  }
-}
-.categoriesBlock {
-  height: 32%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 30px;
-  &__inner {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: inherit;
-  }
-  &__circles {
-    margin-right: 50px;
-    position: relative;
-  }
-  &__circle {
-    border-radius: 50%;
-    position: absolute;
-    &.one {
-      top: 0;
-      left: 0;
-      width: 100px;
-      height: 100px;
-      background-color: #B942DE;
-    }
-    &.two {
-      top: 90px;
-      left: 95px;
-      width: 30px;
-      height: 30px;
-      background-color: #32de91;
-    }
-    &.three {
-      top: 10px;
-      left: 115px;
-      width: 30px;
-      height: 30px;
-      background-color: #3956de;
-    }
-    span {
-      color: white;
+    padding: 20px 20px 20px;
+    .menuIcon {
       display: block;
-      position: absolute;
-      top: 36%;
-      left: 30%;
     }
   }
-  &__text {
-    p {
-      &.one {
-        color: #B942DE;
-        &:before {
-          background-color: #B942DE;
-        }
-      }
-      &.two {
-        color: #32de91;
-        &:before {
-          background-color: #32de91;
-        }
-      }
-      &.three {
-        color: #3956de;
-        &:before {
-          background-color: #3956de;
-        }
-      }
-      &:before {
-        content: "";
-        margin-right: 5px;
-        width: 5px;
-        height: 8px;
-        display: inline-block;
-        border-radius: 50%;
-      }
-    }
+  .right-cont {
+    width: 100%;
   }
-}
-.pictureBlock {
-  width: 80%;
-  height: 37%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  &__picture {
-    background-image: url(/assets/girl.jpg);
-    background-size: cover;
-    margin: 0 auto;
-    width: 60%;
-    height: 60%;
+  .left-inner {
+    height: unset;
   }
+
+
 }
+

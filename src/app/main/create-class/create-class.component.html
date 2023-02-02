@@ -1,36 +1,37 @@
 <div class="container">
-  <app-sidebar></app-sidebar>
+  <app-sidebar [ngClass]="{'opened': isMenuOpened}"></app-sidebar>
   <div class="right-container create-class">
+    <div (click)="openMenu()" class="menuIcon"><mat-icon>menu</mat-icon></div>
     <h3>Create Class</h3>
     <div class="createCombo">
       <div class="createCombo__left">
-        <app-catalog-block></app-catalog-block>
+        <app-catalog-block [items]="items"></app-catalog-block>
       </div>
       <div class="createCombo__right">
         <mat-form-field class="example-full-width">
           <mat-label>Class Name</mat-label>
-          <input matInput placeholder="Enter Combo Name">
+          <input matInput [formControl]="className" placeholder="Enter Combo Name">
         </mat-form-field>
         <div class="createCombo__text">Elements in Your Class: </div>
         <div class="myPage__myListRowYWrap">
           <div class="myPage__myListRowY">
-            <div class="wishlist__item">
+            <div class="wishlist__item" *ngFor="let item of elementsInClass; let ind = index">
               <div class="wishlist__photo"></div>
               <div class="wishlist__info">
-                <p class="wishlist__title">Brass Monkey</p>
-                <p class="wishlist__text">Pole Dance</p>
+                <p class="wishlist__title">{{item.name}}</p>
+                <p class="wishlist__text">{{item.category}}</p>
                 <div class="wishlist__link">
                   <a [routerLink]="'1'">See Element</a>
-                  <div>Level 2</div>
+                  <div>{{item.level}}</div>
                 </div>
               </div>
               <div class="element-number">
-                <div class="number">2</div>
+                <div class="number">{{ind + 1}}</div>
               </div>
             </div>
           </div>
         </div>
-        <button class="myPage__btn primary-btn">Create Class</button>
+        <button role="button" class="myPage__btn primary-btn" (click)="addCombo()">Create Class</button>
       </div>
     </div>
   </div>

@@ -1,23 +1,4 @@
-.container {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  overflow: hidden;
-}
-app-sidebar {
-  width: 23%;
-  background-color: #D9DEFE;
-}
-.right-container {
-  width: 77%;
-  box-shadow: 0 0 4px 1px #d8d8d8;
-  padding: 40px 60px 20px;
-  h3 {
-    font-weight: normal;
-    font-size: 22px;
-    margin-bottom: 30px;
-  }
-}
+
 .createElement {
   &__mediaRow {
     display: flex;
@@ -45,4 +26,18 @@ app-sidebar {
       margin-top: 30px;
     }
   }
+}
+@media only screen and (max-width: 767px) {
+  .createElement__form {
+    padding: 20px;
+    width: 100%;
+    mat-form-field {
+      width: 100%;
+    }
+  }
+  .createElement__media {
+    width: 100px;
+    height: 80px;
+  }
+
 }

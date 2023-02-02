@@ -5,6 +5,20 @@
   padding: 40px 50px;
   flex-direction: column;
   border-right: 1px solid #bfc8e4;
+  position: relative;
+  .closeBtn {
+    position: absolute;
+    top: 30px;
+    right: 28px;
+    display: none;
+    cursor: pointer;
+    mat-icon {
+      font-size: 34px;
+      width: 34px;
+      height: 34px;
+      color: #9da4b9;
+    }
+  }
   &__logo {
     background-image: url("/assets/logo_blue.png");
     width: 115px;
@@ -23,6 +37,8 @@
     background-color: #9fa19f;
     margin-top: 40px;
     margin-bottom: 20px;
+    background-size: 100%;
+    background-position: center;
   }
   &__top {
     display: flex;
@@ -58,5 +74,10 @@
       color: #23468C;
       font-weight: bold;
     }
+  }
+}
+@media only screen and (max-width: 767px) {
+  .sidebar .closeBtn  {
+    display: block;
   }
 }

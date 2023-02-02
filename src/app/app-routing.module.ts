@@ -15,15 +15,20 @@ import {MyClassesComponent} from "./main/my-classes/my-classes.component";
 import {AddTrainerHoursComponent} from "./main/add-trainer-hours/add-trainer-hours.component";
 import {TrainersHoursComponent} from "./main/trainers-hours/trainers-hours.component";
 import {SettingsComponent} from "./main/settings/settings.component";
+import {LandingComponent} from "./landing/landing.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  //{path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: '', component: LandingComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'register', component: RegisterPageComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'cabinet', component: CabinetComponent},
   {path: 'create-combo', component: CreateComboComponent},
   {path: 'create-element', component: CreateElementComponent},
+  {path: 'edit-element', component: CreateElementComponent, children: [
+      {path: ':id', component: CreateElementComponent}
+    ]},
   {path: 'create-class', component: CreateClassComponent},
   {path: 'my-classes', component: MyClassesComponent},
   {path: 'add-hours', component: AddTrainerHoursComponent},

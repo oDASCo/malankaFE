@@ -1,0 +1,58 @@
+<div class="catalog__filters">
+  <div class="filtersRow" [formGroup]='filtersForm'>
+    <div class="filtersRow__item" >
+      <p>Category: </p>
+      <mat-form-field>
+        <mat-select formControlName="category" (selectionChange)="filterCatalog()">
+          <mat-option value="">All</mat-option>
+          <mat-option value="Pole Dance">Pole Dance</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="filtersRow__item">
+      <p>Level: </p>
+      <mat-form-field>
+        <mat-select formControlName="level" (selectionChange)="filterCatalog()">
+          <mat-option value="">All</mat-option>
+          <mat-option value="Level Intro">Level Intro</mat-option>
+          <mat-option value="Level 0">Level 0</mat-option>
+          <mat-option value="Level 1">Level 1</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div class="catalog">
+  <div class="catalog__items">
+    <div class="catalog__item" *ngFor="let item of items;" (click)="addComboElement(item)">
+      <div class="catalog__controls">
+        <button role="button" class="catalog__btn wish" (click)="addToWishlist(item)"><mat-icon>favorite_border</mat-icon> Wishlist</button>
+        <button *ngIf="item.learnt" role="button" class="catalog__btn can" (click)="addToMyElements(item)"><mat-icon>done_all</mat-icon> Can do it</button>
+      </div>
+      <div class="catalog__photo" [style]="{'background-image': 'url(' + item.photo + ')'}"></div>
+      <h5 class="catalog__title">{{item?.name}}</h5>
+      <p class="catalog__text">{{item?.category}}</p>
+      <div class="catalog__link">
+        <a [routerLink]="['/catalog', item.id]"> See Element </a>
+        <div>{{item?.level}}</div>
+      </div>
+    </div>
+<!--    <div class="catalog__item checked">-->
+<!--      <div class="catalog__itemBg">-->
+<!--        <mat-icon class="add">library_add</mat-icon>-->
+<!--        <mat-icon class="remove">delete_forever</mat-icon>-->
+<!--      </div>-->
+<!--&lt;!&ndash;      <div class="catalog__checkbox">&ndash;&gt;-->
+
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--      <div class="catalog__photo"></div>-->
+<!--      <h5 class="catalog__title">Brass Monkey</h5>-->
+<!--      <p class="catalog__text">Pole Dance</p>-->
+<!--      <div class="catalog__link">-->
+<!--        <a>See Element</a>-->
+<!--        <div>Level 2</div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+  </div>
+</div>

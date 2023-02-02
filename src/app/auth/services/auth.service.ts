@@ -1,29 +1,30 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
+import {BASE_URL} from "../../shared/utils";
 
 @Injectable()
 export class AuthService {
 
   public userInfo$ = new BehaviorSubject(null);
 
-  public baseUrl = 'http://localhost:3002/';
-  //public baseUrl = '';
+  // //public baseUrl = 'http://localhost:3002/';
+  //   // public baseUrl = '';
   constructor(
     public http: HttpClient
   ) {}
 
 
   public createUser(data: any): Observable<any> {
-    return this.http.post<HttpResponse<any>>(`${this.baseUrl}api/users`, data);
+    return this.http.post<HttpResponse<any>>(`${BASE_URL}api/users`, data);
   }
 
   public getUser(id: any): Observable<any> {
-    return this.http.get<HttpResponse<any>>(`${this.baseUrl}api/users/${id}`);
+    return this.http.get<HttpResponse<any>>(`${BASE_URL}api/users/${id}`);
   }
 
   public login(data: any): Observable<any> {
-    return this.http.post<HttpResponse<any>>(`${this.baseUrl}api/login`, data);
+    return this.http.post<HttpResponse<any>>(`${BASE_URL}api/auth/login`, data);
   }
 
   // public getPoints(): Observable<any> {

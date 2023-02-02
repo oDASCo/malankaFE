@@ -1,74 +1,64 @@
 <div class="container">
-  <app-sidebar></app-sidebar>
+  <app-sidebar [ngClass]="{'opened': isMenuOpened}"></app-sidebar>
   <div class="left-container">
+    <div (click)="openMenu()" class="menuIcon"><mat-icon>menu</mat-icon></div>
     <h3>Dashboard</h3>
     <div class="left-inner">
       <div class="progressBlock">
         <div class="progressBlock__title">Your Progress</div>
         <div class="progressBlock__items">
           <div class="progressBlock__item">
-            <p class="progressBlock__head">23/114</p>
+            <p class="progressBlock__head">{{levelIntroCount}}/{{allLevelIntroCount}}</p>
             <p class="progressBlock__text">Pole Dance</p>
             <p class="progressBlock__textSmall  progressBlock__text">( Level Intro )</p>
           </div>
           <div class="progressBlock__item">
-            <p class="progressBlock__head">23/114</p>
+            <p class="progressBlock__head">{{level0Count}}/{{allLevel0Count}}</p>
             <p class="progressBlock__text">Pole Dance</p>
-            <p class="progressBlock__textSmall  progressBlock__text">( Level Intro )</p>
+            <p class="progressBlock__textSmall  progressBlock__text">( Level 0 )</p>
           </div>
           <div class="progressBlock__item">
-            <p class="progressBlock__head">23/114</p>
+            <p class="progressBlock__head">{{level1Count}}/{{allLevel1Count}}</p>
             <p class="progressBlock__text">Pole Dance</p>
-            <p class="progressBlock__textSmall  progressBlock__text">( Level Intro )</p>
+            <p class="progressBlock__textSmall  progressBlock__text">( Level 1 )</p>
           </div>
           <div class="progressBlock__item">
-            <p class="progressBlock__head">23/114</p>
+            <p class="progressBlock__head">{{level2Count}}/{{allLevel2Count}}</p>
             <p class="progressBlock__text">Pole Dance</p>
-            <p class="progressBlock__textSmall  progressBlock__text">( Level Intro )</p>
+            <p class="progressBlock__textSmall  progressBlock__text">( Level 2 )</p>
           </div>
         </div>
       </div>
       <div  class="infoBlock">
         <div  class="infoBlock__head">Explore all elements</div>
         <div  class="infoBlock__text">Select element what you want to learn or mark element you already know.</div>
-        <button class="primary-btn infoBlock__btn">Let's go</button>
+        <div class="elementsBlock mobile">
+          <div class="elementCard" *ngFor="let item of items;">
+            <div class="elementCard__video" [style]="{'background-image': 'url(' + item.photo + ')'}"></div>
+            <p class="elementCard__title">{{item.name}}</p>
+            <p class="elementCard__text">{{item.category}}</p>
+            <div class="elementCard__link">
+              <a [routerLink]="['/catalog', item.id]"> See Element </a>
+              <div>{{item.level}}</div>
+            </div>
+          </div>
+        </div>
+        <button class="primary-btn infoBlock__btn" role="button" routerLink="/catalog">Let's go</button>
       </div>
       <div  class="lastBlock">
         <div class="lastBlock__head">Last learnt</div>
         <div class="lastBlock__itemsWrap">
           <div class="lastBlock__items">
-            <div class="lastBlock__item">
+            <div class="lastBlock__item" *ngFor="let item of lastLearnt;">
               <div class="lastBlock__itemPhotoInfo">
-                <div class="lastBlock__itemPhoto"></div>
+                <div class="lastBlock__itemPhoto" [style]="{'background-image': 'url(' + item.photo + ')'}"></div>
                 <div class="lastBlock__itemInfo">
-                  <div class="lastBlock__itemTitle">Handspring</div>
-                  <div class="lastBlock__itemText">Level 2</div>
+                  <div class="lastBlock__itemTitle">{{item.name}}</div>
+                  <div class="lastBlock__itemText">{{item.level}}</div>
                 </div>
 
               </div>
-              <div class="lastBlock__itemName">Pole Dance</div>
-            </div>
-            <div class="lastBlock__item">
-              <div class="lastBlock__itemPhotoInfo">
-                <div class="lastBlock__itemPhoto"></div>
-                <div class="lastBlock__itemInfo">
-                  <div class="lastBlock__itemTitle">Jade</div>
-                  <div class="lastBlock__itemText">Level 2</div>
-                </div>
-
-              </div>
-              <div class="lastBlock__itemName">Pole Dance</div>
-            </div>
-            <div class="lastBlock__item">
-              <div class="lastBlock__itemPhotoInfo">
-                <div class="lastBlock__itemPhoto"></div>
-                <div class="lastBlock__itemInfo">
-                  <div class="lastBlock__itemTitle">Inverted V</div>
-                  <div class="lastBlock__itemText">Level 0</div>
-                </div>
-
-              </div>
-              <div class="lastBlock__itemName">Pole Dance</div>
+              <div class="lastBlock__itemName">{{item.category}}</div>
             </div>
           </div>
         </div>
@@ -83,46 +73,19 @@
         </div>
       </div>
       <div class="elementsBlockSpace">
-        <div class="elementsBlock">
-          <div class="elementCard">
-            <div class="elementCard__video"></div>
-            <h5 class="elementCard__title">Brass Monkey</h5>
-            <p class="elementCard__text">Pole Dance</p>
+        <div class="elementsBlock desktop">
+          <div class="elementCard" *ngFor="let item of items;">
+            <div class="elementCard__video" [style]="{'background-image': 'url(' + item.photo + ')'}"></div>
+            <p class="elementCard__title">{{item.name}}</p>
+            <p class="elementCard__text">{{item.category}}</p>
             <div class="elementCard__link">
-              <a>See Element</a>
-              <div>Level 2</div>
-            </div>
-          </div>
-          <div class="elementCard blue">
-            <div class="elementCard__video"></div>
-            <h5 class="elementCard__title">Brass Monkey</h5>
-            <p class="elementCard__text">Pole Dance</p>
-            <div class="elementCard__link">
-              <a>See Element</a>
-              <div>Level 2</div>
-            </div>
-          </div>
-          <div class="elementCard">
-            <div class="elementCard__video"></div>
-            <h5 class="elementCard__title">Brass Monkey</h5>
-            <p class="elementCard__text">Pole Dance</p>
-            <div class="elementCard__link">
-              <a>See Element</a>
-              <div>Level 2</div>
-            </div>
-          </div>
-          <div class="elementCard blue">
-            <div class="elementCard__video"></div>
-            <h5 class="elementCard__title">Brass Monkey</h5>
-            <p class="elementCard__text">Pole Dance</p>
-            <div class="elementCard__link">
-              <a>See Element</a>
-              <div>Level 2</div>
+              <a [routerLink]="['/catalog', item.id]"> See Element </a>
+              <div>{{item.level}}</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="categoriesBlock">
+      <div class="categoriesBlock" *ngIf="false">
         <div class="categoriesBlock__inner">
           <div class="categoriesBlock__circles">
             <div class="categoriesBlock__circle one"><span>100%</span></div>

@@ -1,35 +1,41 @@
 
 <div class="container">
-  <app-sidebar></app-sidebar>
+  <app-sidebar [ngClass]="{'opened': isMenuOpened}"></app-sidebar>
   <div class="right-container">
+    <div (click)="openMenu()" class="menuIcon"><mat-icon>menu</mat-icon></div>
     <h3>Create Element</h3>
-    <form class="createElement__form">
-      <mat-form-field class="example-full-width">
+    <form class="createElement__form" [formGroup]="createForm" enctype="multipart/form-data">
+      <mat-form-field  class="example-full-width">
         <mat-label>Element Category</mat-label>
-        <mat-select>
-          <mat-option>Pole Dance</mat-option>
+        <mat-select formControlName="category">
+          <mat-option value="Pole Dance">Pole Dance</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field class="example-full-width">
+      <mat-form-field  class="example-full-width">
         <mat-label>Element Name</mat-label>
-        <input matInput placeholder="Enter Combo Name">
+        <input formControlName="name" matInput placeholder="Enter Combo Name">
+      </mat-form-field>
+      <mat-form-field  class="example-full-width">
+        <mat-label>Element Level</mat-label>
+        <mat-select formControlName="level">
+          <mat-option value="Level Intro">Level Intro</mat-option>
+          <mat-option value="Level 0">Level 0</mat-option>
+          <mat-option value="Level 1">Level 1</mat-option>
+          <mat-option value="Level 2">Level 2</mat-option>
+        </mat-select>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <mat-label>Element Level</mat-label>
-        <mat-select>
-          <mat-option>Level Intro</mat-option>
-          <mat-option>Level 0</mat-option>
-        </mat-select>
+        <mat-label>Element description</mat-label>
+        <input  matInput placeholder="Enter Description" formControlName="desc">
       </mat-form-field>
       <div class="example-full-width">
         <mat-label>Media</mat-label>
-        <input type="file"/>
       </div>
       <div class="createElement__mediaRow">
-        <div class="createElement__media"></div>
-        <div class="createElement__media"></div>
+        <app-file-upload formControlName="image" [inpName]="'image'" [progress]="progress"></app-file-upload>
+        <app-file-upload formControlName="video" [inpName]="'video'" [progress]="progress"></app-file-upload>
       </div>
-      <button class="primary-btn">Create Element</button>
+      <button role="button" class="primary-btn" (click)="createElement()">Create Element</button>
     </form>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,10 +24,22 @@ import { AddTrainerHoursComponent } from './main/add-trainer-hours/add-trainer-h
 import { TrainersHoursComponent } from './main/trainers-hours/trainers-hours.component';
 import { SettingsComponent } from './main/settings/settings.component';
 import { ComboComponent } from './main/combo/combo.component';
-import { CatalogBlockComponent } from './main/catalog-block/catalog-block.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {SidebarService} from "./shared/sidebar.service";
+import {ReactiveFormsModule} from "@angular/forms";
+import {FileUploadComponent} from "./main/file-upload/file-upload.component";
+import {CatalogService} from "./main/services/catalog.service";
+import {CatalogBlockComponent} from "./main/catalog/catalog-block/catalog-block.component";
+import { LandingComponent } from './landing/landing.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import { SalesComponent } from './landing/sales/sales.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+import {VgCoreModule} from "@videogular/ngx-videogular/core";
+import {VgControlsModule} from "@videogular/ngx-videogular/controls";
+import {VgOverlayPlayModule} from "@videogular/ngx-videogular/overlay-play";
+import {VgBufferingModule} from "@videogular/ngx-videogular/buffering";
 
 @NgModule({
   declarations: [
@@ -46,7 +58,10 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     TrainersHoursComponent,
     SettingsComponent,
     ComboComponent,
-    CatalogBlockComponent
+    CatalogBlockComponent,
+    FileUploadComponent,
+    LandingComponent,
+    SalesComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +74,13 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     MatInputModule,
     MatFormFieldModule,
     MatCheckboxModule,
+    ReactiveFormsModule,
+    MatTabsModule,
+    NgxSpinnerModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -69,8 +91,10 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 
 
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+// {provide: LocationStrategy, useClass: HashLocationStrategy}
+  providers: [SidebarService, CatalogService],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }
 

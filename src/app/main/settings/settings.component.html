@@ -1,25 +1,25 @@
 
 <div class="container">
-  <app-sidebar></app-sidebar>
+  <app-sidebar [ngClass]="{'opened': isMenuOpened}"></app-sidebar>
   <div class="right-container">
+    <div (click)="openMenu()" class="menuIcon"><mat-icon>menu</mat-icon></div>
     <h3>Settings</h3>
-    <form class="createElement__form">
+    <form class="createElement__form" [formGroup]="userForm">
       <mat-form-field class="example-full-width">
         <mat-label>Username: </mat-label>
-        <input matInput placeholder="Username" value="DASC">
+        <input matInput formControlName="username" placeholder="Username">
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Email: </mat-label>
-        <input matInput placeholder="Email" value="dasc@ya.ru">
+        <input matInput formControlName="email" placeholder="Email">
       </mat-form-field>
       <div class="example-full-width">
-        <mat-label>Media</mat-label>
-        <input type="file"/>
+        <mat-label>Photo</mat-label>
       </div>
       <div class="createElement__mediaRow">
-        <div class="createElement__media"></div>
+        <app-file-upload formControlName="photo" [inpName]="'image'"></app-file-upload>
       </div>
-      <button class="primary-btn">Save</button>
+      <button role="button" class="primary-btn" (click)="updateUser()">Save</button>
     </form>
   </div>
 </div>

@@ -25,7 +25,7 @@ import {AuthService} from "./services/auth.service";
     CommonModule,
     RouterModule,
     TranslateModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService]
 })

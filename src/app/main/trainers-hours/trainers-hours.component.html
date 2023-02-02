@@ -1,6 +1,7 @@
 <div class="container">
-  <app-sidebar></app-sidebar>
+  <app-sidebar [ngClass]="{'opened': isMenuOpened}"></app-sidebar>
   <div class="right-container">
+    <div (click)="openMenu()" class="menuIcon"><mat-icon>menu</mat-icon></div>
     <h3>Instructors Hours</h3>
     <div class="hours">
       <div class="filtersRow">
@@ -21,7 +22,7 @@
           </mat-form-field>
         </div>
 
-        <button class="primary-btn">Search</button>
+        <button role="button" class="primary-btn">Search</button>
       </div>
       <div class="hours__listWrap">
         <div class="hours__list">

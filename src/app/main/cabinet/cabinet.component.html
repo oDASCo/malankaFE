@@ -1,6 +1,7 @@
 <div class="container">
-  <app-sidebar></app-sidebar>
+  <app-sidebar [ngClass]="{'opened': isMenuOpened}"></app-sidebar>
   <div class="right-container">
+    <div (click)="openMenu()" class="menuIcon"><mat-icon>menu</mat-icon></div>
     <h3>My Page</h3>
     <div class="myPage">
       <div class="myPage__left">
@@ -8,42 +9,24 @@
           <div class="myPage__head head-with-line">My List</div>
           <div class="myPage__myListWrap">
             <div class="myPage__myListRow">
-              <div class="catalog__item">
-                <div class="catalog__photo"></div>
-                <p class="catalog__title">Brass Monkey</p>
-                <p class="catalog__text">Pole Dance</p>
+              <div class="catalog__item" *ngFor="let element of myElements;">
+                <div class="catalog__photo" [style]="{'background-image': 'url(' + element.photo + ')'}"></div>
+                <p class="catalog__title">{{element?.name}}</p>
+                <p class="catalog__text">{{element?.category}}</p>
                 <div class="catalog__link">
-                  <a>See Element</a>
-                  <div>Level 2</div>
-                </div>
-              </div>
-              <div class="catalog__item">
-                <div class="catalog__photo"></div>
-                <p class="catalog__title">Brass Monkey</p>
-                <p class="catalog__text">Pole Dance</p>
-                <div class="catalog__link">
-                  <a>See Element</a>
-                  <div>Level 2</div>
-                </div>
-              </div>
-              <div class="catalog__item">
-                <div class="catalog__photo"></div>
-                <p class="catalog__title">Brass Monkey</p>
-                <p class="catalog__text">Pole Dance</p>
-                <div class="catalog__link">
-                  <a>See Element</a>
-                  <div>Level 2</div>
+                  <a [routerLink]="['/catalog', element.id]">See Element</a>
+                  <div>{{element?.level}}</div>
                 </div>
               </div>
             </div>
           </div>
-          <button class="myPage__btn primary-btn">See all</button>
+          <button role="button" class="myPage__btn primary-btn">See all</button>
         </div>
         <div class="myPage__myCombos">
           <div class="myPage__head head-with-line">My Combos</div>
           <div class="myPage__myListRowXWrap">
             <div class="myPage__myListRow">
-              <div class="combo__item">
+              <div class="combo__item" *ngFor="let item of myCombos;">
                 <div class="combo__photos">
                   <div class="combo__photo"></div>
                   <div class="combo__photo"></div>
@@ -51,124 +34,33 @@
                   <div class="combo__photo"></div>
                 </div>
                 <div class="combo__info">
-                  <p class="combo__title">Brass Monkey</p>
-                  <p class="combo__text">Pole Dance</p>
-                </div>
-              </div>
-              <div class="combo__item">
-                <div class="combo__photos">
-                  <div class="combo__photo"></div>
-                  <div class="combo__photo"></div>
-                  <div class="combo__photo"></div>
-                  <div class="combo__photo"></div>
-                </div>
-                <div class="combo__info">
-                  <p class="combo__title">Brass Monkey</p>
-                  <p class="combo__text">Pole Dance</p>
-                </div>
-              </div>
-              <div class="combo__item">
-                <div class="combo__photos">
-                  <div class="combo__photo"></div>
-                  <div class="combo__photo"></div>
-                  <div class="combo__photo"></div>
-                  <div class="combo__photo"></div>
-                </div>
-                <div class="combo__info">
-                  <p class="combo__title">Brass Monkey</p>
-                  <p class="combo__text">Pole Dance</p>
-                </div>
-              </div>
-              <div class="combo__item">
-                <div class="combo__photos">
-                  <div class="combo__photo"></div>
-                  <div class="combo__photo"></div>
-                  <div class="combo__photo"></div>
-                  <div class="combo__photo"></div>
-                </div>
-                <div class="combo__info">
-                  <p class="combo__title">Brass Monkey</p>
-                  <p class="combo__text">Pole Dance</p>
+                  <p class="combo__title">{{item.name}}</p>
+                  <p class="combo__text">{{item.category}}</p>
                 </div>
               </div>
             </div>
           </div>
-          <button class="myPage__btn primary-btn" routerLink="/create-combo">Create Combo</button>
+          <button role="button" class="myPage__btn primary-btn" routerLink="/create-combo">Create Combo</button>
         </div>
       </div>
       <div class="myPage__right">
         <div class="myPage__head head-with-line">My Wishlist</div>
         <div class="myPage__myListRowYWrap">
           <div class="myPage__myListRowY">
-            <div class="wishlist__item">
-              <div class="wishlist__photo"></div>
+            <div class="wishlist__item" *ngFor="let item of myWishlist;">
+              <div class="wishlist__photo" [style]="{'background-image': 'url(' + item.photo + ')'}"></div>
               <div class="wishlist__info">
-                <p class="wishlist__title">Brass Monkey</p>
-                <p class="wishlist__text">Pole Dance</p>
+                <p class="wishlist__title">{{item.name}}</p>
+                <p class="wishlist__text">{{item.category}}</p>
                 <div class="wishlist__link">
-                  <a [routerLink]="'1'">See Element</a>
-                  <div>Level 2</div>
-                </div>
-              </div>
-            </div>
-            <div class="wishlist__item">
-              <div class="wishlist__photo"></div>
-              <div class="wishlist__info">
-                <p class="wishlist__title">Brass Monkey</p>
-                <p class="wishlist__text">Pole Dance</p>
-                <div class="wishlist__link">
-                  <a [routerLink]="'1'">See Element</a>
-                  <div>Level 2</div>
-                </div>
-              </div>
-            </div>
-            <div class="wishlist__item">
-              <div class="wishlist__photo"></div>
-              <div class="wishlist__info">
-                <p class="wishlist__title">Brass Monkey</p>
-                <p class="wishlist__text">Pole Dance</p>
-                <div class="wishlist__link">
-                  <a [routerLink]="'1'">See Element</a>
-                  <div>Level 2</div>
-                </div>
-              </div>
-            </div>
-            <div class="wishlist__item">
-              <div class="wishlist__photo"></div>
-              <div class="wishlist__info">
-                <p class="wishlist__title">Brass Monkey</p>
-                <p class="wishlist__text">Pole Dance</p>
-                <div class="wishlist__link">
-                  <a [routerLink]="'1'">See Element</a>
-                  <div>Level 2</div>
-                </div>
-              </div>
-            </div>
-            <div class="wishlist__item">
-              <div class="wishlist__photo"></div>
-              <div class="wishlist__info">
-                <p class="wishlist__title">Brass Monkey</p>
-                <p class="wishlist__text">Pole Dance</p>
-                <div class="wishlist__link">
-                  <a [routerLink]="'1'">See Element</a>
-                  <div>Level 2</div>
-                </div>
-              </div>
-            </div>
-            <div class="wishlist__item">
-              <div class="wishlist__photo"></div>
-              <div class="wishlist__info">
-                <p class="wishlist__title">Brass Monkey</p>
-                <p class="wishlist__text">Pole Dance</p>
-                <div class="wishlist__link">
-                  <a [routerLink]="'1'">See Element</a>
-                  <div>Level 2</div>
+                  <a [routerLink]="['/catalog', item.id]">See Element</a>
+                  <div>{{item.level}}</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <button class="myPage__btn primary-btn">See all</button>
+        <button role="button" class="myPage__btn primary-btn">See all</button>
       </div>
     </div>
   </div>

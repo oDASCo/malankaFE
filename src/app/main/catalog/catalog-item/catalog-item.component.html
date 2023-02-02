@@ -1,40 +1,45 @@
 <div class="container">
-  <app-sidebar></app-sidebar>
+  <app-sidebar [ngClass]="{'opened': isMenuOpened}"></app-sidebar>
   <div class="right-container">
+    <div (click)="openMenu()" class="menuIcon"><mat-icon>menu</mat-icon></div>
     <div class="element">
-      <div class="element__media"></div>
+
+
+
+      <h3>Basic Video Player</h3>
+<!--      <vg-player>-->
+<!--        <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" controls>-->
+<!--          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">-->
+<!--        </video>-->
+<!--      </vg-player>-->
+
+
       <div class="element__info">
-        <div class="element__title">Brass Monkey</div>
-        <div class="element__category">Pole Dance</div>
-        <div class="element__level">Level 2</div>
+        <div class="element__title">{{item.name}}</div>
+        <div class="element__category">{{item.category}}</div>
+        <div class="element__level">{{item.level}}</div>
         <div class="element__btns">
-          <button class="element__btn wish">
+          <button role="button" class="element__btn wish">
 
             <span><mat-icon>favorite_border</mat-icon>
             Add to wishlist</span>
           </button>
-          <button class="element__btn can">
+          <button role="button" class="element__btn can">
             <span><mat-icon>done_all</mat-icon> Can do it</span>
           </button>
+
+          <button role="button" class="element__btn edit" [routerLink]="['/edit-element', item.id]">
+            <span><mat-icon>edit</mat-icon> Edit Element</span>
+          </button>
+
         </div>
       </div>
     </div>
     <div class="element__desc">
-      <h3>Description: </h3>
+      <h4>Description: </h4>
       <div class="element__descWrap">
         <div class="element__descText">
-          <p>1. Stand .... </p>
-          <p>2. Make .... </p>
-          <p>3. Stand .... </p>
-          <p>4. Make .... </p>
-          <p>5. Stand .... </p>
-          <p>6. Make .... </p>
-          <p>1. Stand .... </p>
-          <p>2. Make .... </p>
-          <p>3. Stand .... </p>
-          <p>4. Make .... </p>
-          <p>5. Stand .... </p>
-          <p>6. Make .... </p>
+          {{item.desc}}
         </div>
       </div>
 
