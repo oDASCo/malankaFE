@@ -11,17 +11,17 @@
       <div class="sidebar__button secondary-btn" routerLink="/cabinet">My page</div>
     </div>
     <div class="menu">
-      <div class="menu__item" routerLink="/dashboard" routerLinkActive="active">Dashboard</div>
-      <div class="menu__item" routerLink="/catalog" routerLinkActive="active">Catalog</div>
-      <div class="menu__item" routerLink="/create-combo" routerLinkActive="active">Create Combo</div>
-      <div class="menu__item" routerLink="/create-element" routerLinkActive="active">Add element</div>
-      <div class="menu__item" routerLink="/my-classes" routerLinkActive="active">My Classes</div>
+      <div class="menu__item" routerLink="/dashboard" routerLinkActive="active" (click)="closeMenu()">Dashboard</div>
+      <div class="menu__item" routerLink="/catalog" routerLinkActive="active" (click)="closeMenu()">Catalog</div>
+      <div class="menu__item" routerLink="/create-combo" routerLinkActive="active" (click)="closeMenu()">Create Combo</div>
+      <div class="menu__item" routerLink="/create-element" routerLinkActive="active" (click)="closeMenu()">Add element</div>
+      <div class="menu__item" routerLink="/my-classes" routerLinkActive="active" (click)="closeMenu()">My Classes</div>
 
     </div>
 
   </div>
   <div class="sidebar__footer">
-    <div class="sidebar__footerItem" routerLink="/settings">Settings</div>
+    <div class="sidebar__footerItem" routerLink="/settings" (click)="closeMenu()">Settings</div>
     <div class="sidebar__footerItem" (click)="logout()">Log Out</div>
   </div>
 

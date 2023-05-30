@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // @ts-ignore
 import * as AOS from 'aos';
-import {NgxSpinnerService} from "ngx-spinner";
+// import {NgxSpinnerService} from "ngx-spinner";
 import {TranslateService} from "@ngx-translate/core";
 
 @Component({
@@ -321,15 +321,15 @@ export class LandingComponent implements OnInit {
 
   loading = true;
 
-  constructor(private spinner: NgxSpinnerService, private translate: TranslateService) {
-    spinner.show()
+  constructor( private translate: TranslateService) {
+    //spinner.show()
   }
 
   ngOnInit(): void {
     AOS.init();
     Promise.all(Array.from(document.images).filter(img => !img.complete).map(img => new Promise(resolve => { img.onload = img.onerror = resolve; }))).then(() => {
       this.loading = false;
-      this.spinner.hide();
+      //this.spinner.hide();
     });
   }
 
@@ -375,7 +375,7 @@ export class LandingComponent implements OnInit {
   showInstructorInfo(id: number) {
     if (this.currentInstr !== id) {
       this.currentInstr = id;
-      this.spinner.show();
+      //this.spinner.show();
     }
   }
 
@@ -414,7 +414,7 @@ export class LandingComponent implements OnInit {
   }
 
   onImageLoaded() {
-    this.spinner.hide();
+    //this.spinner.hide();
   }
 
 }

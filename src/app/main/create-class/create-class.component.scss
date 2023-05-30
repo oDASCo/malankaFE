@@ -126,6 +126,7 @@
   .createCombo {
     display: flex;
     flex-direction: column-reverse;
+    height: inherit;
 
     &__left {
       width: 100%;

@@ -14,6 +14,7 @@ export class CatalogItemComponent implements OnInit {
 
   isMenuOpened = false;
   item = {} as ICatalogItem;
+  videoMode = false;
 
   constructor(public sidebarService: SidebarService,
               private router: Router,
@@ -26,6 +27,7 @@ export class CatalogItemComponent implements OnInit {
     });
     this.activatedRoute.url.subscribe((val) => {
       this.catalogService.getCatalogItem(val[0].path).subscribe((item: ICatalogItem) => {
+        console.log(item);
         this.item = {...item,
           photo: BASE_URL + item.photo,
           video: BASE_URL + item.video};
@@ -34,6 +36,11 @@ export class CatalogItemComponent implements OnInit {
   }
   openMenu() {
     this.sidebarService.isMenuOpened.next(true);
+  }
+
+  goToVideo() {
+    this.videoMode = !this.videoMode;
+    this.catalogService.videoSlide$.next(true);
   }
 
 }

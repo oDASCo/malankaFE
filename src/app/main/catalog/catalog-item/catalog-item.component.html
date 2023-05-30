@@ -1,18 +1,16 @@
-<div class="container">
+<div class="mal-container">
   <app-sidebar [ngClass]="{'opened': isMenuOpened}"></app-sidebar>
   <div class="right-container">
     <div (click)="openMenu()" class="menuIcon"><mat-icon>menu</mat-icon></div>
     <div class="element">
 
-
-
-      <h3>Basic Video Player</h3>
-<!--      <vg-player>-->
-<!--        <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" controls>-->
-<!--          <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">-->
-<!--        </video>-->
-<!--      </vg-player>-->
-
+      <div class="element__media">
+        <div class="video-btn" (click)="goToVideo()">
+          <mat-icon *ngIf="!videoMode">videocam</mat-icon>
+          <mat-icon  *ngIf="videoMode">image</mat-icon>
+        </div>
+        <ngbd-carousel-basic [item]="item" ></ngbd-carousel-basic>
+      </div>
 
       <div class="element__info">
         <div class="element__title">{{item.name}}</div>
@@ -28,7 +26,7 @@
             <span><mat-icon>done_all</mat-icon> Can do it</span>
           </button>
 
-          <button role="button" class="element__btn edit" [routerLink]="['/edit-element', item.id]">
+          <button role="button" class="element__btn edit"  [routerLink]="['/edit-element', item.id]">
             <span><mat-icon>edit</mat-icon> Edit Element</span>
           </button>
 
@@ -37,11 +35,18 @@
     </div>
     <div class="element__desc">
       <h4>Description: </h4>
-      <div class="element__descWrap">
-        <div class="element__descText">
-          {{item.desc}}
+      <div class="steps-list">
+        <div class="step-item" *ngFor="let step of item.desc; let ind = index">
+          <div class="step-ind">{{ind + 1}}</div>
+          <p>{{step}}</p>
+
         </div>
       </div>
+<!--      <div class="element__descWrap">-->
+<!--        <div class="element__descText">-->
+<!--          {{item.desc}}-->
+<!--        </div>-->
+<!--      </div>-->
 
     </div>
 

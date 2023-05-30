@@ -19,7 +19,12 @@
     border-radius: 10px;
     width: 70%;
     height: 400px;
-    background-image: url(/assets/photo1.jpeg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    //background-image: url(/assets/photo1.jpeg);
 
     background-position: center;
     background-size: cover;
@@ -106,10 +111,37 @@
 
   }
 }
+
+.steps-list {
+
+}
+
+.step-item {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: start;
+  p {
+    padding: 5px 10px;
+  }
+}
+
+.step-ind {
+  padding: 13px 20px;
+  //background-color: darkblue;
+  color: #abb4ec;
+  border-radius: 50%;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  max-width: 58px;
+  border: 5px solid #abb4ec;
+}
+
+
 @media only screen and (max-width: 767px) {
   .right-container {
     width: 100%;
-    padding: 20px;
+    padding: 70px 20px 0 20px;
   }
   .element {
     flex-direction: column-reverse;
@@ -120,8 +152,9 @@
     &__info {
       width: 100%;
       align-items: flex-end;
-      padding-right: 20px;
-      padding-left: 20px;
+      //padding-right: 20px;
+      //padding-left: 20px;
+      padding-top: 0px;
       margin-left: 0px;
 
     }
@@ -130,6 +163,9 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 10px;
+      .edit {
+        display: none;
+      }
       button {
         width: 47%;
         min-height: 44px;

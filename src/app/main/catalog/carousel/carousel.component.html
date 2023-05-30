@@ -1,0 +1,23 @@
+
+
+<ngb-carousel #carousel>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img  class="carou-media" [src]="item.photo"/>
+    </div>
+    <div class="carousel-caption">
+
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+            <video width="320" height="240" controls class="carou-media" *ngIf="item.video">
+              <source [src]="item.video" type="video/mp4" codec="avc1.4d002a, mp4a.40.2">
+              Your browser does not support the video tag.
+            </video>
+    </div>
+    <div class="carousel-caption">
+
+    </div>
+  </ng-template>
+</ngb-carousel>

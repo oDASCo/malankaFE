@@ -5,7 +5,7 @@ export interface ICatalogItem {
   category: String,
   video: String | null,
   photo: String,
-  desc: String,
+  desc: Array<string>,
   createdBy?: String
   userId?: String,
   catalogElementId?: String,
@@ -35,7 +35,7 @@ export interface IElement {
   category: String,
   video: String | null,
   photo: String,
-  desc: String,
+  desc: Array<string>,
   createdBy?: String
   learnDate?: String,
   catalogElementId?: String,
@@ -58,7 +58,7 @@ export interface IWishlistElement {
   id: String,
   userId: String,
   name: String,
-  desc: String,
+  desc: Array<string>,
   category: String,
   photo: String,
   video: String,

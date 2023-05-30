@@ -27,6 +27,13 @@ export class AuthService {
     return this.http.post<HttpResponse<any>>(`${BASE_URL}api/auth/login`, data);
   }
 
+
+  public googleAuth(queryParams?: any): Observable<any> {
+    console.log(queryParams);
+    return this.http.get<HttpResponse<any>>(`https://accounts.google.com/o/oauth2/v2/auth`, {params: queryParams});
+  }
+
+
   // public getPoints(): Observable<any> {
   //   return this.http.get<HttpResponse<any>>(`${this.baseUrl}api/points`);
   // }

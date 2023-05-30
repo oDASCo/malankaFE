@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="mal-container">
   <app-sidebar [ngClass]="{'opened': isMenuOpened}"></app-sidebar>
   <div class="right-container">
     <div (click)="openMenu()" class="menuIcon"><mat-icon>menu</mat-icon></div>
@@ -24,10 +24,26 @@
           <mat-option value="Level 2">Level 2</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field class="example-full-width">
+      <div class="desc-list">
+        <div class="desc-step" *ngFor="let step of steps; let ind = index">
+          <div class="desc-step-ind">{{ind + 1}}</div>
+          <p>{{step}}</p>
+
+        </div>
+      </div>
+      <mat-form-field class="example-full-width descri">
+
         <mat-label>Element description</mat-label>
-        <input  matInput placeholder="Enter Description" formControlName="desc">
+<!--        <input  matInput placeholder="Enter Description" formControlName="desc" >-->
+
+        <textarea matInput
+                  cdkTextareaAutosize
+                  formControlName="desc"
+                  #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMinRows="1"
+                  cdkAutosizeMaxRows="5"></textarea>
       </mat-form-field>
+      <button (click)="addStep()" class="third-btn">Add step</button>
       <div class="example-full-width">
         <mat-label>Media</mat-label>
       </div>

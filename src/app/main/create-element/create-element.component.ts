@@ -23,13 +23,14 @@ export class CreateElementComponent implements OnInit {
     video: new FormControl(null),
   });
   progress: any = 0;
-
+  itemPhoto: String | undefined;
 
   isMenuOpened = false;
 
   user: IUser;
   elementData: any;
   pathArr: string[] = [''];
+  steps: Array<string> = [] as [];
 
   constructor(public sidebarService: SidebarService,
               public catalogService:  CatalogService,
@@ -49,6 +50,8 @@ export class CreateElementComponent implements OnInit {
     console.log(this.pathArr[1]);
     if (this.pathArr[1] === 'edit-element') {
       this.catalogService.getCatalogItem(this.pathArr[2]).subscribe((item: ICatalogItem) => {
+        this.itemPhoto = item.photo;
+        this.steps = item.desc;
         this.elementData = {...item,
           photo: BASE_URL + item.photo,
           video: BASE_URL + item.video};
@@ -60,24 +63,43 @@ export class CreateElementComponent implements OnInit {
   openMenu() {
     this.sidebarService.isMenuOpened.next(true);
   }
+  addStep() {
+    // @ts-ignore
+    this.steps.push(this.createForm.value.desc);
+  }
 
 
   createElement() {
-    let elemData = {...this.createForm.value, video: null, createdBy: this.user.id, id: this.elementData.id ? this.elementData.id : null
-    };
+    let elemData = {...this.createForm.value, video: null, createdBy: this.user.id, id: this.elementData ? this.elementData.id : null, desc: this.steps};
+
     let photoData = {file: this.createForm.value.image};
     let videoData = {file: this.createForm.value.video};
 
     if (this.pathArr[1] === 'edit-element') {
-      this.catalogService.editCatalogElement(elemData).pipe(
-        concatMap(result1 => this.catalogService.uploadCatalogPhoto(this.toFormData({...result1, ...photoData}))),
-        concatMap( (result2) => this.catalogService.uploadCatalogVideo(this.toFormData({...result2, ...videoData}))),
-      ).subscribe(
-        success => {
-          this.createForm.reset();
-        },
-        errorData => { /* display error msg */ }
-      );
+
+      if (!this.itemPhoto) {
+        this.catalogService.editCatalogElement(elemData).pipe(
+          concatMap(result1 => this.catalogService.uploadCatalogPhoto(this.toFormData({...result1, ...photoData}))),
+          concatMap( (result2) => this.catalogService.uploadCatalogVideo(this.toFormData({...result2, ...videoData}))),
+        ).subscribe(
+          success => {
+            this.createForm.reset();
+          },
+          errorData => { /* display error msg */ }
+        );
+      } else {
+        this.catalogService.editCatalogElement(elemData).pipe(
+          concatMap( (result2) => this.catalogService.uploadCatalogVideo(this.toFormData({...result2, ...videoData}))),
+        ).subscribe(
+          success => {
+            this.createForm.reset();
+          },
+          errorData => { /* display error msg */ }
+        );
+      }
+
+
+
     } else {
       this.catalogService.createCatalogElement(elemData).pipe(
         concatMap(result1 => this.catalogService.uploadCatalogPhoto(this.toFormData({...result1, ...photoData}))),

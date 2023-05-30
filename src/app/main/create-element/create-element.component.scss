@@ -14,19 +14,48 @@
 &__form {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 70%;
   align-items: flex-start;
 
   mat-form-field {
-    width: 70%;
+    width: 100%;
     margin-bottom: 20px;
   }
+  mat-form-field.descri {
+    margin-bottom: 0;
+  }
 
-  button {
+  .primary-btn {
     margin-top: 30px;
+  }
+  .third-btn {
+    align-self: flex-end;
   }
 }
 }
+
+.desc-list {
+  margin: 10px 0 20px;
+}
+
+.desc-step {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: start;
+}
+
+.desc-step-ind {
+  padding: 3px 10px;
+  background-color: darkblue;
+  color: white;
+  border-radius: 50%;
+  margin-right: 10px;
+  font-size: 12px;
+  font-weight: bold;
+
+}
+
+
 @media only screen and (max-width: 767px) {
   .createElement__form {
     padding: 20px;

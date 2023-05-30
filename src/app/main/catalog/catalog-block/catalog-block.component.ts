@@ -13,21 +13,37 @@ import {HttpParams} from "@angular/common/http";
 export class CatalogBlockComponent implements OnInit {
 
   @Input() items = [] as IElements | ICatalogItems;
-  //items = [] as ICatalogItems;
+  allItems = this.items;
+  filters = false;
 
   filtersForm = new FormGroup({
     category: new FormControl(''),
-    level: new FormControl('')
+    level: new FormControl(''),
+    search: new FormControl('')
   });
 
-  constructor(public catalogService:  CatalogService) { }
+  constructor(public catalogService:  CatalogService) {
+
+  }
 
   ngOnInit(): void {
+    console.log(this.items);
+
+  }
+
+
+  filterElements() {
+
+    let searchStr = this.filtersForm.value.search || '';
+    if (this.filtersForm.value.search == '') {
+      this.items = this.allItems;
+    } else {
+      this.items = this.items.filter(item => item.name.trim().toLocaleLowerCase().includes(searchStr.trim().toLocaleLowerCase()));
+    }
 
   }
 
   filterCatalog() {
-    console.log(this.filtersForm.value);
 
     let params = new HttpParams();
     if (this.filtersForm.value.level) {
@@ -71,6 +87,10 @@ export class CatalogBlockComponent implements OnInit {
 
   addClassElement(item: ICatalogItem) {
     this.catalogService.addClassElement$.next(item);
+  }
+
+  showFilters() {
+    this.filters = !this.filters;
   }
 
 }

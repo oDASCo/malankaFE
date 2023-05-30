@@ -23,6 +23,11 @@
     color: #23468C;
     text-transform: uppercase;
   }
+  &__mobileHeader {
+    display: none;
+    background-color: white;
+    position: fixed;
+  }
 }
 
 
@@ -104,10 +109,36 @@
     max-height: 200px;
     height: unset;
   }
+  .right-container {
+    padding: 70px 20px 0 20px;
+    height: unset;
+  }
   .createCombo {
     display: flex;
     flex-direction: column-reverse;
-
+    height: inherit;
+    &__mobileHeader {
+      display: flex;
+      background-color: white;
+      position: fixed;
+      justify-content: space-between;
+      width: 100%;
+      padding: 20px 0px;
+      top: 0;
+      z-index: 100;
+      h3 {
+        margin-bottom: 0;
+        margin-right: 44px;
+      }
+      .menuIcon {
+        position: static;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+    &__header {
+      display: none;
+    }
     &__left {
       width: 100%;
     }

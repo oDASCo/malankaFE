@@ -35,11 +35,8 @@ import {CatalogBlockComponent} from "./main/catalog/catalog-block/catalog-block.
 import { LandingComponent } from './landing/landing.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import { SalesComponent } from './landing/sales/sales.component';
-import { NgxSpinnerModule } from "ngx-spinner";
-import {VgCoreModule} from "@videogular/ngx-videogular/core";
-import {VgControlsModule} from "@videogular/ngx-videogular/controls";
-import {VgOverlayPlayModule} from "@videogular/ngx-videogular/overlay-play";
-import {VgBufferingModule} from "@videogular/ngx-videogular/buffering";
+import {NgbCarouselModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbdCarouselBasic} from "./main/catalog/carousel/carousel.component";
 
 @NgModule({
   declarations: [
@@ -61,7 +58,8 @@ import {VgBufferingModule} from "@videogular/ngx-videogular/buffering";
     CatalogBlockComponent,
     FileUploadComponent,
     LandingComponent,
-    SalesComponent
+    SalesComponent,
+    NgbdCarouselBasic
   ],
   imports: [
     BrowserModule,
@@ -76,18 +74,15 @@ import {VgBufferingModule} from "@videogular/ngx-videogular/buffering";
     MatCheckboxModule,
     ReactiveFormsModule,
     MatTabsModule,
-    NgxSpinnerModule,
-    VgCoreModule,
-    VgControlsModule,
-    VgOverlayPlayModule,
-    VgBufferingModule,
+    NgbCarouselModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    NgbModule
 
 
   ],

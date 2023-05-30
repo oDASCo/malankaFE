@@ -11,8 +11,9 @@ export class CatalogService {
   public catalog$ = new BehaviorSubject([] as ICatalogItems);
   public addComboElement$ = new BehaviorSubject({} as ICatalogItem);
   public addClassElement$ = new BehaviorSubject({} as ICatalogItem);
+  public videoSlide$ = new BehaviorSubject(false);
 
-  // public baseUrl = 'http://localhost:3002/';
+  //public baseUrl = 'http://localhost:3002/';
   // //public baseUrl = '';
 
   constructor(
@@ -88,6 +89,5 @@ export class CatalogService {
   public addClass(data: any): Observable<any> {
     return this.http.post<HttpResponse<any>>(`${BASE_URL}api/classes`, data);
   }
-
 
 }

@@ -1,25 +1,35 @@
 <div class="catalog__filters">
   <div class="filtersRow" [formGroup]='filtersForm'>
     <div class="filtersRow__item" >
-      <p>Category: </p>
+      <mat-icon>search</mat-icon>
       <mat-form-field>
-        <mat-select formControlName="category" (selectionChange)="filterCatalog()">
-          <mat-option value="">All</mat-option>
-          <mat-option value="Pole Dance">Pole Dance</mat-option>
-        </mat-select>
+        <input placeholder="Search by name" formControlName="search" matInput (input)="filterElements()">
       </mat-form-field>
     </div>
-    <div class="filtersRow__item">
-      <p>Level: </p>
-      <mat-form-field>
-        <mat-select formControlName="level" (selectionChange)="filterCatalog()">
-          <mat-option value="">All</mat-option>
-          <mat-option value="Level Intro">Level Intro</mat-option>
-          <mat-option value="Level 0">Level 0</mat-option>
-          <mat-option value="Level 1">Level 1</mat-option>
-        </mat-select>
-      </mat-form-field>
+    <mat-icon class="filters-icon" (click)="showFilters()">filter_list</mat-icon>
+    <div *ngIf="filters" class="filters-addons">
+      <div class="filtersRow__item" >
+        <p>Category: </p>
+        <mat-form-field>
+          <mat-select formControlName="category" (selectionChange)="filterCatalog()">
+            <mat-option value="">All</mat-option>
+            <mat-option value="Pole Dance">Pole Dance</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="filtersRow__item">
+        <p>Level: </p>
+        <mat-form-field>
+          <mat-select formControlName="level" (selectionChange)="filterCatalog()">
+            <mat-option value="">All</mat-option>
+            <mat-option value="Level Intro">Level Intro</mat-option>
+            <mat-option value="Level 0">Level 0</mat-option>
+            <mat-option value="Level 1">Level 1</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
+
   </div>
 </div>
 <div class="catalog">
