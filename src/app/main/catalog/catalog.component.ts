@@ -3,6 +3,7 @@ import {SidebarService} from "../../shared/sidebar.service";
 import {ICatalogItem, ICatalogItems} from "../../shared/interfaces/interface";
 import {BASE_URL} from "../../shared/utils";
 import {CatalogService} from "../services/catalog.service";
+import {HttpParams} from "@angular/common/http";
 
 @Component({
   selector: 'app-catalog',
@@ -13,6 +14,7 @@ export class CatalogComponent implements OnInit {
 
   isMenuOpened = false;
   items = [] as ICatalogItems;
+  user: any;
 
   constructor(public sidebarService: SidebarService,
               public catalogService:  CatalogService) { }
@@ -25,10 +27,11 @@ export class CatalogComponent implements OnInit {
       if (data.length !== 0) {
         this.items = data;
       } else {
+        this.user = JSON.parse(<string>window.localStorage.getItem('userInfo'));
+        let params = new HttpParams();
+        params = params.append("userId", this.user.id);
 
-
-
-        this.catalogService.getMyElements().subscribe(myElements => {
+        this.catalogService.getMyElements(params).subscribe(myElements => {
           this.catalogService.getCatalogItems().subscribe((data: ICatalogItems) => {
             this.items = data;
             this.items.map((item: ICatalogItem) => {

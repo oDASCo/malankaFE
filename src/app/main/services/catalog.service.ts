@@ -42,8 +42,8 @@ export class CatalogService {
     return this.http.get<HttpResponse<any>>(`${BASE_URL}api/catalog`, {params: queryParams});
   }
 
-  public getMyElements(): Observable<any> {
-    return this.http.get<HttpResponse<any>>(`${BASE_URL}api/element`);
+  public getMyElements(queryParams?: any): Observable<any> {
+    return this.http.get<HttpResponse<any>>(`${BASE_URL}api/element`, {params: queryParams});
   }
 
   public getCatalogItem(id: string): Observable<any> {
@@ -62,12 +62,12 @@ export class CatalogService {
     return this.http.get<HttpResponse<any>>(`${BASE_URL}api/combo/${id}`);
   }
 
-  public getMyCombos(): Observable<any> {
-    return this.http.get<HttpResponse<any>>(`${BASE_URL}api/combo`);
+  public getMyCombos(queryParams?: any): Observable<any> {
+    return this.http.get<HttpResponse<any>>(`${BASE_URL}api/combo`, {params: queryParams});
   }
 
-  public getWishlist(): Observable<any> {
-    return this.http.get<HttpResponse<any>>(`${BASE_URL}api/wishlist`);
+  public getWishlist(queryParams?: any): Observable<any> {
+    return this.http.get<HttpResponse<any>>(`${BASE_URL}api/wishlist`, {params: queryParams});
   }
 
   public addToWishlist(data: ICatalogItem): Observable<any> {

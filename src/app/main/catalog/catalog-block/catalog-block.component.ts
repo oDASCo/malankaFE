@@ -15,6 +15,7 @@ export class CatalogBlockComponent implements OnInit {
   @Input() items = [] as IElements | ICatalogItems;
   allItems = this.items;
   filters = false;
+  user: any;
 
   filtersForm = new FormGroup({
     category: new FormControl(''),
@@ -52,8 +53,10 @@ export class CatalogBlockComponent implements OnInit {
     if (this.filtersForm.value.category) {
       params = params.append("category", this.filtersForm.value.category);
     }
-
-    this.catalogService.getMyElements().subscribe(myElements => {
+    this.user = JSON.parse(<string>window.localStorage.getItem('userInfo'));
+    let paramsId = new HttpParams();
+    params = params.append("userId", this.user.id);
+    this.catalogService.getMyElements(paramsId).subscribe(myElements => {
       this.catalogService.getCatalogItems(params).subscribe((data: ICatalogItems) => {
         this.items = data;
         this.items.map((item: ICatalogItem) => {

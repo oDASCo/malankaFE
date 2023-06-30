@@ -36,7 +36,7 @@
   <div class="catalog__items">
     <div class="catalog__item" *ngFor="let item of items;" (click)="addComboElement(item)">
       <div class="catalog__controls">
-        <button role="button" class="catalog__btn wish" (click)="addToWishlist(item)"><mat-icon>favorite_border</mat-icon> Wishlist</button>
+        <button *ngIf="item.learnt" role="button" class="catalog__btn wish" (click)="addToWishlist(item)"><mat-icon>favorite_border</mat-icon> Wishlist</button>
         <button *ngIf="item.learnt" role="button" class="catalog__btn can" (click)="addToMyElements(item)"><mat-icon>done_all</mat-icon> Can do it</button>
       </div>
       <div class="catalog__photo" [style]="{'background-image': 'url(' + item.photo + ')'}"></div>

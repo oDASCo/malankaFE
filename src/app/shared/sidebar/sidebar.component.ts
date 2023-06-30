@@ -22,9 +22,15 @@ export class SidebarComponent implements OnInit {
               private ngZone: NgZone) {
     this.user = JSON.parse(<string>window.localStorage.getItem('userInfo')) ? JSON.parse(<string>window.localStorage.getItem('userInfo')) : null;
     if (this.user) {
-      this.user.photo = this.user ? BASE_URL + this.user.photo : '';
-      this.userImg = `url(${this.user.photo})`;
-      console.log(this.userImg);
+
+      if (this.user.photo.search('google')) {
+        this.user.photo = this.user ? this.user.photo : '';
+        this.userImg = `url(${this.user.photo})`;
+      } else {
+        this.user.photo = this.user ? BASE_URL + this.user.photo : '';
+        this.userImg = `url(${this.user.photo})`;
+      }
+
     }
 
   }

@@ -23,14 +23,18 @@ export class AuthService {
     return this.http.get<HttpResponse<any>>(`${BASE_URL}api/users/${id}`);
   }
 
+  public getUserByUsername(username: any, queryParams: any): Observable<any> {
+    console.log(queryParams);
+    return this.http.get<HttpResponse<any>>(`${BASE_URL}api/users/${username}`, {params: queryParams});
+  }
+
   public login(data: any): Observable<any> {
     return this.http.post<HttpResponse<any>>(`${BASE_URL}api/auth/login`, data);
   }
 
 
-  public googleAuth(queryParams?: any): Observable<any> {
-    console.log(queryParams);
-    return this.http.get<HttpResponse<any>>(`https://accounts.google.com/o/oauth2/v2/auth`, {params: queryParams});
+  public googleAuth(): Observable<any> {
+    return this.http.get<HttpResponse<any>>(`${BASE_URL}api/auth/google`);
   }
 
 

@@ -29,6 +29,7 @@ export class CatalogItemComponent implements OnInit {
       this.catalogService.getCatalogItem(val[0].path).subscribe((item: ICatalogItem) => {
         console.log(item);
         this.item = {...item,
+          desc: item.desc[0].split(','),
           photo: BASE_URL + item.photo,
           video: BASE_URL + item.video};
       });

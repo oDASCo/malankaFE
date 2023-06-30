@@ -4,6 +4,7 @@ import {ICatalogItem, ICatalogItems} from "../../shared/interfaces/interface";
 import {BASE_URL} from "../../shared/utils";
 import {CatalogService} from "../services/catalog.service";
 import {FormControl} from "@angular/forms";
+import {HttpParams} from "@angular/common/http";
 
 @Component({
   selector: 'app-create-class',
@@ -16,6 +17,7 @@ export class CreateClassComponent implements OnInit {
   items = [] as ICatalogItems;
   elementsInClass = [] as ICatalogItems;
   className = new FormControl('');
+  user: any;
 
   constructor(public sidebarService: SidebarService,
               public catalogService:  CatalogService) { }
@@ -24,7 +26,10 @@ export class CreateClassComponent implements OnInit {
     this.sidebarService.isMenuOpened.subscribe(val => {
       this.isMenuOpened = val;
     });
-    this.catalogService.getMyElements().subscribe(data => {
+    this.user = JSON.parse(<string>window.localStorage.getItem('userInfo'));
+    let params = new HttpParams();
+    params = params.append("userId", this.user.id);
+    this.catalogService.getMyElements(params).subscribe(data => {
       this.items = data;
     });
 

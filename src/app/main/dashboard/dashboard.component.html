@@ -33,6 +33,7 @@
         <div  class="infoBlock__head">Explore all elements</div>
         <div  class="infoBlock__text">Select element what you want to learn or mark element you already know.</div>
         <div class="elementsBlock mobile">
+          <div>{{items}}</div>
           <div class="elementCard" *ngFor="let item of items;">
             <div class="elementCard__video" [style]="{'background-image': 'url(' + item.photo + ')'}"></div>
             <p class="elementCard__title">{{item.name}}</p>

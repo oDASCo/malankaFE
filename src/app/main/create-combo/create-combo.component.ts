@@ -4,6 +4,7 @@ import {CatalogService} from "../services/catalog.service";
 import {ICatalogItem, ICatalogItems, IElement, IElements} from "../../shared/interfaces/interface";
 import {FormControlName} from "@angular/forms";
 import { FormControl } from '@angular/forms';
+import {HttpParams} from "@angular/common/http";
 
 @Component({
   selector: 'app-create-combo',
@@ -15,6 +16,7 @@ export class CreateComboComponent implements OnInit {
   isMenuOpened = false;
   myElements = [] as IElements;
   elementsInCombo = [] as ICatalogItems;
+  user: any;
 
   comboName = new FormControl('');
 
@@ -25,7 +27,10 @@ export class CreateComboComponent implements OnInit {
     this.sidebarService.isMenuOpened.subscribe(val => {
       this.isMenuOpened = val;
     });
-    this.catalogService.getMyElements().subscribe(data => {
+    this.user = JSON.parse(<string>window.localStorage.getItem('userInfo'));
+    let params = new HttpParams();
+    params = params.append("userId", this.user.id);
+    this.catalogService.getMyElements(params).subscribe(data => {
       this.myElements = data;
     });
     this.catalogService.addComboElement$.subscribe(item => {

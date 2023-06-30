@@ -36,6 +36,7 @@ export class LoginPageComponent implements OnInit {
     if (!this.loginForm.invalid) {
 
       this.authService.login(this.loginForm.value).subscribe(data => {
+        console.log(data);
         window.localStorage.setItem('userInfo', JSON.stringify(data));
         this.authService.userInfo$.next(data);
         //this.authService.isLoggedIn = true;
@@ -48,17 +49,9 @@ export class LoginPageComponent implements OnInit {
   }
 
   loginWithGoogle() {
-    let params = new HttpParams();
-    params = params.append('client_id', '650568311361-r6dfdv19l7irbuneei74ekplhoienjum.apps.googleusercontent.com');
-    // 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
-    params = params.append('redirect_uri', 'http://localhost:4200/dashboard');
-    params = params.append('response_type', 'token');
-    params = params.append('scope', 'https://www.googleapis.com/auth/drive.metadata.readonly');
-    params = params.append('include_granted_scopes', 'true');
-    params = params.append('state', 'pass-through value');
-    // this.authService.googleAuth(params).subscribe(data => {
+    window.location.href = 'http://localhost:8080/api/auth/google/callback';
+    // this.authService.googleAuth().subscribe(data => {
     //   console.log(data);
     // });
-    window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?client_id=650568311361-ecq49fiqfclgu2rjnu55ms9eb2b8gs9o.apps.googleusercontent.com&redirect_uri=https://localhost:4200/dashboard&response_type=token&scope=https://www.googleapis.com/auth/drive.metadata.readonly&include_granted_scopes=true&state=pass-through value`;
   }
 }

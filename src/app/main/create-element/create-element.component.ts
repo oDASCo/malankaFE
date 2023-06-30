@@ -66,6 +66,7 @@ export class CreateElementComponent implements OnInit {
   addStep() {
     // @ts-ignore
     this.steps.push(this.createForm.value.desc);
+    this.createForm.patchValue({desc: ''});
   }
 
 
