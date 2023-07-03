@@ -32,9 +32,9 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {FileUploadComponent} from "./main/file-upload/file-upload.component";
 import {CatalogService} from "./main/services/catalog.service";
 import {CatalogBlockComponent} from "./main/catalog/catalog-block/catalog-block.component";
-import { LandingComponent } from './landing/landing.component';
+// import { LandingComponent } from './landing/landing.component';
 import {MatTabsModule} from "@angular/material/tabs";
-import { SalesComponent } from './landing/sales/sales.component';
+//import { SalesComponent } from './landing/sales/sales.component';
 import {NgbCarouselModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgbdCarouselBasic} from "./main/catalog/carousel/carousel.component";
 
@@ -57,8 +57,8 @@ import {NgbdCarouselBasic} from "./main/catalog/carousel/carousel.component";
     ComboComponent,
     CatalogBlockComponent,
     FileUploadComponent,
-    LandingComponent,
-    SalesComponent,
+    // LandingComponent,
+    // SalesComponent,
     NgbdCarouselBasic
   ],
   imports: [

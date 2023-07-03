@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
   font-family: 'Proxima';
-  src: url('../assets/Proxima_Nova_Font.otf');
+  src: url('../Proxima_Nova_Font.otf');
 }
 html {
   scroll-behavior: smooth;
@@ -31,7 +31,7 @@ app-auth, app-login-page, app-register-page {
   height: 100%;
   display: flex;
   flex-wrap: nowrap;
-  background-image: url("../assets/DSC04717.jpeg");
+  background-image: url("../DSC04717.jpeg");
   background-size: cover;
   background-position-y: center;
   position: relative;
@@ -165,10 +165,10 @@ app-sidebar {
   display: inline-block;
   cursor: pointer;
   &.en {
-    background-image: url("../assets/united-kingdom.png");
+    background-image: url("../united-kingdom.png");
   }
   &.pl {
-    background-image: url("../assets/poland.png");
+    background-image: url("../poland.png");
   }
 }
 
@@ -457,7 +457,7 @@ app-sidebar {
     width: 100%;
     height: 80px;
     border-radius: 20px;
-    background-image: url(../assets/photo1.jpeg);
+    background-image: url(../photo1.jpeg);
     background-position: center;
     background-size: cover;
   }
@@ -576,7 +576,7 @@ app-sidebar {
   justify-content: center;
   margin: 0 auto;
   &__picture {
-    background-image: url(../assets/girl.jpg);
+    background-image: url(../girl.jpg);
     background-size: cover;
     margin: 0 auto;
     width: 60%;
